@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "entry",
   "scripts": {
-    "start": "node dist/app.js",
-    "dev": "nodemon --watch '**/*.ts' --exec 'ts-node' app.ts",
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch '**/*.ts' --exec 'ts-node' index.ts",
     "build": "tsc && cd client && yarn --prod && yarn build"
   },
   "license": "MIT",
@@ -35,7 +35,7 @@
       "node_modules"
     ],
     "watch": [
-      "app.ts"
+      "index.ts"
     ],
     "exec": "yarn start",
     "ext": "ts"
