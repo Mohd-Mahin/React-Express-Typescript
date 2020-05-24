@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node dist/app.js",
     "dev": "nodemon --watch '**/*.ts' --exec 'ts-node' app.ts",
-    "build": "tsc && cd client && yarn --production=false && yarn build"
+    "build": "tsc && cd client && yarn --prod && yarn build"
   },
   "license": "MIT",
   "dependencies": {
