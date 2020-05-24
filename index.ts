@@ -13,6 +13,7 @@ function notFound(req, res: Response, next) {
   next();
 }
 
+app.set("views", path.join(__dirname, "client"));
 app.use(express.static(clientBuild));
 
 app.use(bodyParser.json());
