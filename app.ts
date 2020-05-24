@@ -14,6 +14,7 @@ function notFound(req, res: Response, next) {
 }
 
 app.use(express.static(clientBuild));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", shopRouter);
