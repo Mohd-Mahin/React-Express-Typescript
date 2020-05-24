@@ -5,7 +5,7 @@ import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 14000;
-const clientBuild = path.join(__dirname, "client", "build");
+const clientBuild = path.join(__dirname, "client");
 const isProd = process.env.NODE_ENV === "production";
 
 // function devRedirect(req, res, next) {
@@ -19,17 +19,17 @@ function notFound(req, res: Response, next) {
   next();
 }
 
-app.use("/", express.static(clientBuild));
+app.use("/client", express.static(clientBuild));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", shopRouter);
 
-console.log(path.join(clientBuild, "index.html"));
+console.log(path.join(clientBuild, "client", "build", "index.html"));
 
 // if (isProd)
 app.get("*", (req, res) => {
-  res.sendFile(clientBuild);
+  res.sendFile(path.join(clientBuild, "client", "build", "index.html"));
 });
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
