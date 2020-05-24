@@ -24,7 +24,6 @@ app.use("/client/dist", express.static(clientBuild), notFound);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 app.use("/api", shopRouter);
 
 console.log(path.join(clientBuild, "index.html"));
