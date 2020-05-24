@@ -1,7 +1,7 @@
 {
   "name": "ecommerce-store",
   "version": "1.0.0",
-  "main": "dist/app.js",
+  "main": "entry",
   "scripts": {
     "start": "node dist/app.js",
     "dev": "nodemon --watch '**/*.ts' --exec 'ts-node' app.ts",
