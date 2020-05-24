@@ -5,7 +5,6 @@ import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 14000;
-// const distFolder = "./client/dist";
 const clientBuild = path.join(__dirname, "client", "build");
 const isProd = process.env.NODE_ENV === "production";
 
@@ -20,7 +19,7 @@ function notFound(req, res: Response, next) {
   next();
 }
 
-app.use("/client/dist", express.static(clientBuild), notFound);
+app.use(express.static(clientBuild));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,7 +29,7 @@ console.log(path.join(clientBuild, "index.html"));
 
 // if (isProd)
 app.get("*", (req, res) => {
-  res.sendFile(path.join(clientBuild, "index.html"));
+  res.sendFile(clientBuild);
 });
 // else app.get("*", notFound);
 
