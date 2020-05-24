@@ -25,11 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", shopRouter);
 
-console.log(path.join(clientBuild, "client", "build", "index.html"));
+console.log(path.join(clientBuild, "build", "index.html"));
 
 // if (isProd)
 app.get("*", (req, res) => {
-  res.sendFile(path.join(clientBuild, "client", "build", "index.html"));
+  res.sendFile(path.join(clientBuild, "build", "index.html"));
 });
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
