@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "entry",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "npx ts-node index.ts",
     "dev": "nodemon --watch '**/*.ts' --exec 'ts-node' index.ts",
     "build": "cd client && yarn --prod && yarn build"
   },
