@@ -13,7 +13,7 @@ function notFound(req, res: Response, next) {
   next();
 }
 
-app.use(express.static(clientBuild));
+// app.use(express.static(clientBuild));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
