@@ -21,7 +21,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", shop_1.default);
 if (isProd)
     app.get("*", (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "..", "client", "build", "index.html"));
+        // res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+        res.sendFile("client/build/index.html", {
+            root: path_1.default.join(__dirname, ".."),
+        });
     });
 else
     app.get("*", notFound);
