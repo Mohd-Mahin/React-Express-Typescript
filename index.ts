@@ -21,7 +21,7 @@ app.use("/api", shopRouter);
 
 if (isProd)
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "build", "index.html"));
   });
 else app.get("*", notFound);
 
