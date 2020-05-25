@@ -13,7 +13,7 @@ function notFound(req, res: Response, next) {
   next();
 }
 
-// app.use(express.static(clientBuild));
+app.use(express.static(clientBuild));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,10 +21,10 @@ app.use("/api", shopRouter);
 
 if (isProd)
   app.get("*", (req, res) => {
-    // res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-    res.sendFile("client/index.html", {
-      root: path.join(__dirname),
-    });
+    res.sendFile(path.join(__dirname, "index.html"));
+    // res.sendFile("client/index.html", {
+    //   root: path.join(__dirname),
+    // });
   });
 else app.get("*", notFound);
 

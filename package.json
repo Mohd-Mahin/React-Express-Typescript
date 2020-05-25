@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "entry",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "ts-node index.ts",
     "dev": "nodemon --watch '**/*.ts' --exec 'ts-node' index.ts",
-    "build": "tsc && cd client && yarn --prod && yarn build"
+    "build": "cd client && yarn --prod && yarn build"
   },
   "license": "MIT",
   "dependencies": {
