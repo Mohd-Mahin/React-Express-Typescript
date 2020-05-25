@@ -5,7 +5,6 @@ import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 14000;
-const clientBuild = path.join(__dirname, "client", "build");
 const isProd = process.env.NODE_ENV === "production";
 
 function notFound(req, res: Response, next) {
@@ -13,7 +12,7 @@ function notFound(req, res: Response, next) {
   next();
 }
 
-app.use(express.static(clientBuild)); // not able to acess in production
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,7 +20,8 @@ app.use("/api", shopRouter);
 
 if (isProd)
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+    // res.sendFile(path.join(__dirname, "build", "index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
   });
 else app.get("*", notFound);
 

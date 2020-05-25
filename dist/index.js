@@ -9,19 +9,19 @@ const shop_1 = __importDefault(require("./routes/shop"));
 const path_1 = __importDefault(require("path"));
 const app = express_1.default();
 const PORT = process.env.PORT || 14000;
-const clientBuild = path_1.default.join(__dirname, "client", "build");
 const isProd = process.env.NODE_ENV === "production";
 function notFound(req, res, next) {
     res.status(404).send("Not Found !!!");
     next();
 }
-app.use(express_1.default.static(clientBuild)); // not able to acess in production
+app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", shop_1.default);
 if (isProd)
     app.get("*", (req, res) => {
-        res.sendFile(path_1.default.join(__dirname, "build", "index.html"));
+        // res.sendFile(path.join(__dirname, "build", "index.html"));
+        res.sendFile(path_1.default.join(__dirname, "index.html"));
     });
 else
     app.get("*", notFound);
