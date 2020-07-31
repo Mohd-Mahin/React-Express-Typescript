@@ -4,8 +4,8 @@ const shopRouter: Router = express.Router();
 // index route => GET REQ
 shopRouter.get("/home-page", (req, res) => {
   res.json({
-    name: "Shop Route",
-    type: "get",
+    name: "just shop",
+    type: " its get",
     route: "/",
   });
 });
